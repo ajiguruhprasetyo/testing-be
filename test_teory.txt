@@ -1,0 +1,39 @@
+1. Why does Node.js only use a single thread?
+    - Because it only allocates threads to ongoing processes, it makes process performance light weight  using the method asynchronous
+2. How does Node.js handle multiple requests in a single thread?
+    - Using a program code execution process that is run doesn't have to be sequential using asynchronous or Non Blocking I/O
+3. How can we use multiple threads in Node.js?
+    - It was built to be a non-blocking I/O JavaScript runtime to build scalable network applications, so it uses the event-driven asynchronous paradigm instead of multithreading to achieve this goal
+4. What is Node Stream?
+    - objects that allow to read file from a source or write files, network communication or any kind of end to end information exchange in an efficient way
+5. What is the difference between readFile & createReadStream?
+    - While the readfile loads the whole file into the memory you pointed out, the createReadStream, on the other hand, reads the entire file in chunks of sizes that you specified. The client will also receive the data faster with createReadStream since it is sent in chunks while it’s being read. The readfile, however, reads the whole file first before it’s sent to the client. This can be negligible if the file size is small, but makes such a great difference where the disks are slow and the file content is big.
+6. How can we split schema in GraphQL?
+    - you can split them up then use the fancy bash script to send it to dgraph/slashgraphgql
+    - cat *.graphql >> schema.graphql
+    - You might want to ensure schema.graphql isn’t there first so
+    - rm schema.graphql && cat *.graphql >> schema.graphql
+7. How can we make custom data types in GraphQL?
+    - With Scalar type
+8. What is Loader in GraphQL?
+    - Optimizing graphql data query complex’s
+    - generic utility to be used as part of your application's data fetching layer to provide a simplified and consistent API over various remote data sources such as databases or web services via batching and caching.
+9. What are advantages & disadvantages of normalizing data in MongoDB?
+    1. Advantages
+        - performance
+        - document model
+        - flexible schema
+    2. Disadvantages
+        - no transaction
+        - no join
+        - memory limitation
+10. How do we do replication in MongoDB?
+    1. MongoDB achieves replication by the use of replica set.
+    2. Set up a replica set, we will convert standalone MongoDB instance to a replica set. To convert to replica set, following are the steps :
+        * Shutdown already running MongoDB server.
+        * Start the MongoDB server by specifying -- replSet option. Following is the basic syntax of --replSet − example : mongod --port 27017 --dbpath "D:\set up\mongodb\data" --replSet rs0
+        Add Members to Replica Set
+        To add members to replica set, start mongod instances on multiple machines. Now start a mongo client and issue a command rs.add().
+        Example : rs.add("mongod1.net:27017")
+        You can add mongod instance to replica set only when you are connected to primary node. To check whether you are connected to primary or not, issue the command db.isMaster() in mongo client.
+
